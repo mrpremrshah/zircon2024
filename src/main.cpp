@@ -74,26 +74,8 @@ void reset_all () {
 
 }
 void loop () {
-    Serial.println(readBall(1));
+    // movement(ballFinder.orbit());
 
-    while (readBall(1) > 501 || readBall(1) < 499) {
-        if (ballFinder.main_calc() < 0) {
-            movement(ballFinder.main_calc());
-        }
-
-        else if(ballFinder.main_calc() > 0) {
-            movement(-ballFinder.main_calc());
-        }
-
-        if (readBall(1) > 501) {
-            movement(180);
-        }
-
-        else if (readBall(1) < 499) {
-            movement(0);
-        }
-    }
-}
 
 
     // Serial.println(ballFinder.main_calc());
@@ -118,6 +100,10 @@ void loop () {
     // Serial.println("ball 6:   " + String(readBall(6)));
     // Serial.println("ball 7:   " + String(readBall(7)));
     // Serial.println("ball 8:   " + String(readBall(8)));
+    // Serial.println(ballFinder.main_calc());
+    movement(ballFinder.orbit());
+    // delay(100);
+
 
     // for (int i = 1; i < 9; i++) {
     //     if (readBall(i) >= 75) {
@@ -127,3 +113,5 @@ void loop () {
     // average = avg/num_sens;
     // Serial.println(average);
     // }
+
+}
