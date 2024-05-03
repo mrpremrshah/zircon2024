@@ -14,6 +14,7 @@ class BallFinding {
         bool ball_in_robot;
         double orbit_val;
         double multi;
+        double move_angle;
         const int num_sensors = 8;
 
 };

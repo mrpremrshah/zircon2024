@@ -101,8 +101,9 @@ void loop () {
     // Serial.println("ball 7:   " + String(readBall(7)));
     // Serial.println("ball 8:   " + String(readBall(8)));
     // Serial.println(ballFinder.main_calc());
-    movement(ballFinder.orbit());
-    // delay(100);
+    // movement(ballFinder.orbit());
+    Serial.println(ballFinder.orbit());
+    delay(100);
 
 
     // for (int i = 1; i < 9; i++) {
