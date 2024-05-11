@@ -15,7 +15,7 @@ int theta1, theta2, theta3;
 double avg, average, num_sens;
 
 BallFinding ballFinder;
-
+LineAvoidance lineAvoidance; 
 void setup() {
     InitializeZircon();
     Serial.begin(9600);
@@ -74,6 +74,16 @@ void reset_all () {
 
 }
 void loop () {
+    double moveAngle = ballFinder.orbit();
+
+    // Check for line and adjust the movement angle if necessary
+    if (lineAvoidance.detectLine()) {
+        lineAvoidance.avoidLine(moveAngle);
+    }
+
+    // Move the robot based on the adjusted moveAngle
+    movement(moveAngle);
+
     // movement(ballFinder.orbit());
 
 
