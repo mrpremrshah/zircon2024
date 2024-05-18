@@ -15,7 +15,7 @@ int theta1, theta2, theta3;
 double avg, average, num_sens;
 
 BallFinding ballFinder;
-LineAvoidance lineAvoidance; 
+// LineAvoidance lineAvoidance; 
 void setup() {
     InitializeZircon();
     Serial.begin(9600);
@@ -73,18 +73,45 @@ void reset_all () {
     motor3(0,0);
 
 }
+ int goalDirection;
 void loop () {
-    double moveAngle = ballFinder.orbit();
+    
+    // if (readButton(2)==1) {
+    // goalDirection = readCompass();
+    // }
 
-    // Check for line and adjust the movement angle if necessary
-    if (lineAvoidance.detectLine()) {
-        lineAvoidance.avoidLine(moveAngle);
-    }
+    // int direction= readCompass();
+
+    // int diffrence= goalDirection-direction;
+
+    // if (diffrence<0) {
+    //    motor1(40,1);
+    //    motor2(40,1);
+    //    motor3(40,1);
+    // }
+    // else if (goalDirection+10<direction>goalDirection-10) {
+    //    motor1(0,0);
+    //    motor2(0,0);
+    //    motor3(0,0);
+    // }
+    // else {
+    //    motor1(40,0);
+    //    motor2(40,0);
+    //    motor3(40,0);
+    // }
+    // Serial.println("Goal_direction: " + String(goalDirection)+ " current_Direction: " + String(direction)+ " diffrence: " + String(diffrence));
+    // delay(100);
+    // double moveAngle = ballFinder.orbit();
+
+    // // Check for line and adjust the movement angle if necessary
+    // if (lineAvoidance.detectLine()) {
+    //     lineAvoidance.avoidLine(moveAngle);
+    // }
 
     // Move the robot based on the adjusted moveAngle
-    movement(moveAngle);
+    // movement(moveAngle);
 
-    // movement(ballFinder.orbit());
+    movement(ballFinder.orbit());
 
 
 
