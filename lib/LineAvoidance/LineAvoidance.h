@@ -1,4 +1,4 @@
-#ifndef LINE_AVOIDANCE_H
+#define LINE_AVOIDANCE_H
 #define LINE_AVOIDANCE_H
 #include <Arduino.h>
 #include <zirconLib.h>
