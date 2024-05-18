@@ -75,7 +75,8 @@ void reset_all () {
 }
  int goalDirection;
 void loop () {
-    
+    // This is Compass
+    {
     // if (readButton(2)==1) {
     // goalDirection = readCompass();
     // }
@@ -101,6 +102,23 @@ void loop () {
     // }
     // Serial.println("Goal_direction: " + String(goalDirection)+ " current_Direction: " + String(direction)+ " diffrence: " + String(diffrence));
     // delay(100);
+    }
+    
+    // This is defense
+
+    ballFinder.orbit(); 
+    if (180>ballFinder.ballAngle> 0)
+    {
+        movement(90);
+    }
+    else if (360>ballFinder.ballAngle>180)
+    {
+        movement(270);
+    }
+
+
+    // Anything Below is random
+
     // double moveAngle = ballFinder.orbit();
 
     // // Check for line and adjust the movement angle if necessary
@@ -111,7 +129,7 @@ void loop () {
     // Move the robot based on the adjusted moveAngle
     // movement(moveAngle);
 
-    movement(ballFinder.orbit());
+    // movement(ballFinder.orbit());
 
 
 
@@ -139,7 +157,7 @@ void loop () {
     // Serial.println("ball 8:   " + String(readBall(8)));
     // Serial.println(ballFinder.main_calc());
     // movement(ballFinder.orbit());
-    Serial.println(ballFinder.orbit());
+    Serial.println(ballFinder.ballAngle);
     delay(100);
 
 
